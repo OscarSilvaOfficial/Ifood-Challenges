@@ -6,8 +6,8 @@ authors = ["OscarSilvaOfficial <oscarkaka222@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = "0.68.0"
-uvicorn = "0.12.2"
+fastapi = ">=0.68.0"
+uvicorn = "^0.12.2"
 pytest = "^6.2.5"
 
 [tool.poetry.dev-dependencies]
