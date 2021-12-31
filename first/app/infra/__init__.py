@@ -1,8 +1,9 @@
-from logging import raiseExceptions
+from app.infra.main import MainServer
 from app.infra.fastapi import FastAPIServer
+from app.infra.routes.main_routes import main_routes
 
-app = FastAPIServer.factory()
-
-@app.get('/')
-async def index():
-  return 'ok'
+def mount_app():
+  server = MainServer(FastAPIServer)
+  app = server.app
+  main_routes(app)
+  return app
