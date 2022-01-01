@@ -1,9 +1,12 @@
+from starlette.routing import request_response
 from app.useCases.services.tracks_service import TracksService
 
 
-def main_routes(app):
+def main_routes(router):
   
-  @app.get('/')
+  @router.get('/')
   async def all_traks():
     tracks_service = TracksService()
     return tracks_service.get()
+  
+  return router
