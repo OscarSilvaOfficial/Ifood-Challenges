@@ -1,4 +1,4 @@
-from app.infra.external.spotfy import Spotfy
+from app.infra.external.spotify import Spotfy
 
 spotfy = Spotfy()
 
