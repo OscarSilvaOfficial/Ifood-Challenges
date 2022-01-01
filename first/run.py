@@ -1,4 +1,5 @@
 from app.infra import mount_app 
+from app.infra.configs.enviroment import DEBUG
 import uvicorn
 
 app = mount_app()

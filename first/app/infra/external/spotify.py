@@ -33,5 +33,9 @@ class Spotify:
     data = json.load(open(file_dir))
     return data
   
-  def get_music_tracks(self, playlist_id: Optional[int]=None):
+  def get_playlist(self, playlist_id: Optional[int]=None):
     return self._get_local_data() if DEBUG else self._mount_api_request(playlist_id)
+  
+  def get_playlist_tracks(self):
+    playlist = self.get_playlist() 
+    return playlist['tracks']['items']

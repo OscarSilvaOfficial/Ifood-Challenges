@@ -7,6 +7,9 @@ class TracksService(UseCases):
   def __init__(self, spotify=Spotify):
     self.spotify = Spotify()
     
-  def get(self, id: Optional[int] = None):
-    return self.spotify.get_music_tracks(id)
+  """
+  Descobrir a temperatura da cideda, e com base nisso retornar uma lista de musicas
+  """ 
+  def get(self, city: Optional[str]=None, lat: Optional[str]=None, lon: Optional[str]=None):
+    return self.spotify.get_playlist_tracks()
   
