@@ -1,8 +1,9 @@
+from typing import Optional
 import requests, json, os
 from app.infra.configs.enviroment import CLIENT_ID, CLIENT_SECRET, \
   DEBUG, SPOTFY_API_URL, SPOTFY_AUTH_URL, TOKEN
 
-class Spotfy:
+class Spotify:
   
   def __init__(
     self, 
@@ -32,5 +33,5 @@ class Spotfy:
     data = json.load(open(file_dir))
     return data
   
-  def get_music_tracks(self, playlist_id: int):
+  def get_music_tracks(self, playlist_id: Optional[int]=None):
     return self._get_local_data() if DEBUG else self._mount_api_request(playlist_id)
