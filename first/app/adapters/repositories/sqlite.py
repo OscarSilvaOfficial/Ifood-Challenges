@@ -1,16 +1,12 @@
 from typing import Optional
-from app.adapters.repositories.interfaces.repository import Repository
-import sqlite3
+from app.adapters.repositories.interfaces.repository import Repository as IRepository
+from app.infra.db.interfaces.db import DB
 
-class SQLiteRepository(Repository):
+class Repository(IRepository):
   
-  def __init__(self, entity, db_path='local.db'):
-    self._connection = db_path  
-    self._entity = entity
-    
-  def connect(self):
-    connection = sqlite3.connect(self._connection)
-    return connection.cursor()
+  def __init__(self, db: DB, entity):
+    self._db=db
+    self._entity=entity
   
   def get(self, id: Optional[int] = None):
     pass
