@@ -1,5 +1,5 @@
 from app.infra.http.interfaces.WSGIApplication import WSGIApplication
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
 
 class FastAPIServer(WSGIApplication):
   
