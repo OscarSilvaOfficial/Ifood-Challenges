@@ -1,4 +1,4 @@
-from app.adapters.repositories.sqlite import SQLiteRepository
+from app.adapters.repositories.repository import SQLiteRepository
 from app.entities.interfaces.tracks import TracksModel
 from app.useCases.services.tracks_service import TracksService
 
