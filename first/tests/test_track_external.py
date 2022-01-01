@@ -1,8 +1,8 @@
-from app.infra.external.spotify import Spotfy
+from app.infra.external.spotify import Spotify
 
-spotfy = Spotfy()
+spotify = Spotify()
 
 def test_track_external():
-  tracks = spotfy.get_music_tracks('4xKZLaPLh99LGKRjRlHxyX?si=83c968361f034f16')
+  tracks = spotify.get_music_tracks('4xKZLaPLh99LGKRjRlHxyX?si=83c968361f034f16')
   assert type(tracks) == dict
   
