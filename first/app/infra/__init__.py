@@ -1,5 +1,5 @@
 from app.infra.main import MainServer
-from app.infra.fastapi import FastAPIServer
+from app.infra.http.fastapi import FastAPIServer
 from app.infra.routes.main_routes import main_routes
 
 def mount_app():

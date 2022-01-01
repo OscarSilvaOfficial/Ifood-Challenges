@@ -1,4 +1,4 @@
-from app.infra.interfaces.WSGIApplication import WSGIApplication
+from app.infra.http.interfaces.WSGIApplication import WSGIApplication
 
 class MainServer:
   

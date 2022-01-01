@@ -1,0 +1,3 @@
+GET https://api.spotify.com/v1/playlists/4xKZLaPLh99LGKRjRlHxyX?si=83c968361f034f16
+Authorization: Bearer BQDQWulePtoZRm-W-eTVbITJ0jO9yoKHQ4ZkDn_yPjgZsFVA8dFk12TYiTcmBRW73d57bz10bPAcriYAnlc8Zc3KxqXty30Ayufz8Le9Uh9QbQTVbH_BcHmZAdQYwN7B-plzWAE54I9I7odv-qp-17gGIxPIDtwFgvT2PaRqc4Fhf5KmbjQhgrdNp0I-pM152ClgDKkk_XsUlQs
+Content-Type: application/json
