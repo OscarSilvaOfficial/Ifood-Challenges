@@ -2,8 +2,9 @@ from typing import Optional
 import requests, json, os
 from app.infra.configs.enviroment import CLIENT_ID, CLIENT_SECRET, \
   DEBUG, SPOTFY_API_URL, SPOTFY_AUTH_URL, TOKEN
+from app.infra.external.interfaces.spotify_api import SpotifyAPI
 
-class Spotify:
+class Spotify(SpotifyAPI):
   
   def __init__(
     self, 
@@ -21,7 +22,7 @@ class Spotify:
     
   def _mount_api_request(self, playlist_id: int):
     request = {
-      'url': f"{self._url}/playlists/{playlist_id}",
+      'url': f"{self._url}/playlists/{playlist_id}/tracks",
       'headers': {
         "Authorization": f"Bearer {self._token}"
       } 
@@ -36,6 +37,22 @@ class Spotify:
   def get_playlist(self, playlist_id: Optional[int]=None):
     return self._get_local_data() if DEBUG else self._mount_api_request(playlist_id)
   
+  def get_music_style(self, music_id: int):
+    request = {
+      'url': f"{self._url}/artists/{music_id}",
+      'headers': {
+        "Authorization": f"Bearer {self._token}"
+      } 
+    }
+    music = requests.get(**request).json()
+    return music['genre'][0] if music['genres'] else None 
+  
   def get_playlist_tracks(self):
     playlist = self.get_playlist() 
-    return playlist['tracks']['items']
+    musics = playlist['tracks']['items']
+    
+    for music in musics:
+      music['style'] = self.get_music_style(music['track']['artists'][0]['id'])
+    
+    return musics
+  

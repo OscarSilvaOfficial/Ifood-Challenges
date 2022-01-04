@@ -25,7 +25,7 @@ def test_get_playlist_with_no_city_and_lat_params():
     'lon': '-46.653'
   }
   response = client.get('/api', params=params)
-  assert response.status_code == 404
+  assert response.status_code == 400
   
 def test_get_playlist_with_no_lon_and_lat_params():
   params = {

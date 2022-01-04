@@ -1,23 +1,23 @@
 from app.entities.interfaces.tracks import TracksModel
 
-class Playlist(TracksModel):
+class Playlist():
   
   def __init__(self, musics: list):
-    self._musics = musics
+    self.musics = musics
     
   def _get_track_style(self, climate: int):
-    if climate > 30:
+    if self.climate > 30:
       return 'party'
-    if climate >= 15 and climate <= 30:
+    if self.climate >= 15 and self.climate <= 30:
       return 'pop'
-    if climate >= 10 and climate <= 14:
+    if self.climate >= 10 and self.climate <= 14:
       return 'rock'
     return 'classic'
-    
-  def musics(self, climate: int):
+  
+  def get_playlist(self, climate: int):
     music_list = []
-    for music in self._musics:
-      if music['style'] == self._get_track_style(climate):
-        music_list.append(music)
+    for music in self.musics:
+      # if music['style'] == self._get_track_style(self.climate):
+      music_list.append(music)
     return music_list
   
